@@ -59,7 +59,7 @@ The relay's COM, NO, and NC contacts must correspond to the labels on the actual
 
 ## Circuit Diagram
 
-![ESP32 RFID Bulb Controller](docs/relay-bulb-circuit.png)
+![ESP32 RFID Bulb Controller](docs/relay-bulb.png)
 
 ## Add multiple teachers' RFID cards
 
