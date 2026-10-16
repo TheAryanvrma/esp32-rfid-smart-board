@@ -1,0 +1,17 @@
+flowchart TD
+    A([Power ESP32]) --> B[Initialize relay]
+    B --> C[Command relay OFF / bulb OFF]
+    C --> D[Initialize MFRC522]
+    D --> E{Card detected?}
+    E -- No --> E
+    E -- Yes --> F[Read UID]
+    F --> G{UID = 72 2B CE 5C?}
+    G -- No --> H[Access denied; relay unchanged]
+    H --> E
+    G -- Yes --> I{Cooldown passed?}
+    I -- No --> E
+    I -- Yes --> J{Current relay state}
+    J -- OFF --> K[Relay ON; bulb command ON]
+    J -- ON --> L[Relay OFF; bulb command OFF]
+    K --> E
+    L --> E

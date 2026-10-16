@@ -1,0 +1,7 @@
+flowchart LR
+    TAG[Authorized RFID card] <--> RC522[MFRC522 reader]
+    RC522 <-->|SPI: GPIO 5, 18, 19, 22, 23| MCU[ESP32 Dev Module]
+    USB[USB power] --> MCU
+    MCU -->|GPIO 26| RELAY[5 V relay module / IN1]
+    USB -->|5 V only if module supports it| RELAY
+    RELAY -.->|Properly rated and inspected contact circuit| BULB[AC bulb]
