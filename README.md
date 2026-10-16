@@ -47,9 +47,11 @@ Assuming the module labels are `VCC`, `GND`, `IN1`, `IN2` and the module support
 | IN1 | ESP32 GPIO 26 |
 | IN2 | Unused |
 
+The sketch assumes active-LOW logic: LOW energizes the relay; HIGH de-energizes it. If the module has JD-VCC or different labels, use its exact manufacturer documentation.
 
 ## Relay and bulb function
 
+The code controls the relay only. The bulb turns ON/OFF only if the bulb is connected to the relay contacts correctly and the relay is rated for that load. The actual COM/NO/NC terminal positions must be identified from labels/datasheet, not guessed. Because the current installation freezes when AC is connected, this document does not provide a live mains wiring procedure. A qualified electrician must inspect the complete mains circuit before it is energized. Never use a breadboard for mains voltage.
 
 ## Add multiple teachers' RFID cards
 
@@ -117,7 +119,9 @@ The diagrams below are SVG images and should render directly in GitHub's README 
 - [Wiring notes](docs/wiring.md)
 - [Testing and troubleshooting](docs/testing-and-troubleshooting.md)
 
+## Known issue / safety status
 
+The user's low-voltage RFID and relay tests were stable over USB alone. With AC mains involved, the controller froze even when the relay was OFF; after the first scan switched the bulb ON, the relay and bulb stayed ON and RFID stopped responding. EN/RESET did not recover it; USB power cycling did. Cause is unknown. Do not reconnect AC until a qualified electrician inspects the installation. Software cannot fix unsafe wiring or guarantee fail-off behavior during a controller hang.
 
 ## Security limitations
 
