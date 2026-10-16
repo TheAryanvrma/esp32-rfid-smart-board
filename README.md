@@ -57,6 +57,10 @@ When an authorized teacher scans an RFID card, the ESP32 toggles the relay state
 
 The relay's COM, NO, and NC contacts must correspond to the labels on the actual module and the project's circuit diagram. The relay must be suitable for the connected bulb load. Keep low-voltage ESP32 wiring separate from the AC load circuit, and never use a breadboard for mains voltage.
 
+## Circuit Diagram
+
+![ESP32 RFID Bulb Controller](docs/relay-bulb-circuit.png)
+
 ## Add multiple teachers' RFID cards
 
 The sketch supports multiple authorized card UIDs. To register each teacher's card:
