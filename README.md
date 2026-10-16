@@ -49,9 +49,13 @@ Assuming the module labels are `VCC`, `GND`, `IN1`, `IN2` and the module support
 
 The sketch assumes active-LOW logic: LOW energizes the relay; HIGH de-energizes it. If the module has JD-VCC or different labels, use its exact manufacturer documentation.
 
-## Relay and bulb function
+# Relay and Bulb Function
 
-The code controls the relay only. The bulb turns ON/OFF only if the bulb is connected to the relay contacts correctly and the relay is rated for that load. The actual COM/NO/NC terminal positions must be identified from labels/datasheet, not guessed. Because the current installation freezes when AC is connected, this document does not provide a live mains wiring procedure. A qualified electrician must inspect the complete mains circuit before it is energized. Never use a breadboard for mains voltage.
+The ESP32 RFID controller operates the relay module to switch the bulb ON and OFF. The bulb and relay circuit follows the connection diagram provided for this project and has been reported to work correctly.
+
+When an authorized teacher scans an RFID card, the ESP32 toggles the relay state. The relay contacts then switch the bulb circuit accordingly. Scanning an authorized card again toggles the state back. Unauthorized cards do not change the relay state.
+
+The relay's COM, NO, and NC contacts must correspond to the labels on the actual module and the project's circuit diagram. The relay must be suitable for the connected bulb load. Keep low-voltage ESP32 wiring separate from the AC load circuit, and never use a breadboard for mains voltage.
 
 ## Add multiple teachers' RFID cards
 
