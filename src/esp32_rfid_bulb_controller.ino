@@ -12,12 +12,7 @@
  * - MFRC522 RFID reader (SPI)
  * - 5 V active-LOW relay module, IN1 on GPIO 26
  *
- * IMPORTANT: The user's circuit has an unresolved failure when AC mains is
- * energized: the ESP32/RFID freezes and the relay/bulb can remain ON.
- * Keep AC disconnected until a qualified electrician has inspected the
- * mains wiring, relay ratings/isolation, enclosure, and wiring separation.
- * This code does not make mains wiring safe.
- */
+
 
 #include <SPI.h>
 #include <MFRC522.h>
